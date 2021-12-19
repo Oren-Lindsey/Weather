@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <script src="https://weather.s40.repl.co/static/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
+    <link href="https://weather.s40.repl.co/static/css/style.css/" rel="stylesheet">
+    <meta name="theme-color" content="#CA4E38" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#913727" media="(prefers-color-scheme: dark)">
+  </head>
+  <body>
+    <header class="topbar" id="header" style="">
+      <h1 class="headerText"> Weather </h1>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="page" class="page">
+      <p id="loader" style="display: block;">Loading...</p>
+      <div id="weather" class="weather"></div>
+    </div>
+    <script>getWeather();</script>
+  </body>
+</html>

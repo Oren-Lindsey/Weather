@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: white;
+  }
+  .topbar {
+    background-color: #CA4E38;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid #B07075
+  }
+  .headerText {
+    display: block;
+    color: #151723;
+  }
+  
+  .page {
+    align-items: center;
+  }
+  
+  .weather {
+    display: block;
+  }
+  .weather p {
+    margin: 3px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #151723;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+  }
+  h2 {
+    text-align: center;
+    color: #151723;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+  }
+  p {
+    text-align: center;
+    color: #151723;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+  }
+  ::selection {
+    background-color: #1FBFAF;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #151723;
+  }
+  .topbar {
+    background-color: #913727;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid #693A3F;
+  }
+  .headerText {
+    display: block;
+    color: #E8E8EE;
+  }
+  
+  .page {
+    align-items: center;
+  }
+  
+  .weather {
+    display: block;
+  }
+  .weather p {
+    margin: 3px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #E8E8EE;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+  }
+  h2 {
+    text-align: center;
+    color: #E8E8EE;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+  }
+  p {
+    text-align: center;
+    color: #E8E8EE;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+  }
+  ::selection {
+    background-color: #178C81;
+  }
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+.sticky + .content {
+  padding-top: 102px;
+}
