@@ -6,6 +6,7 @@
   .topbar {
     background-color: #CA4E38;
     display: block;
+    text-align: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,6 +20,7 @@
   
   .page {
     align-items: center;
+    text-align: center;
   }
   
   .weather {
@@ -29,19 +31,16 @@
   }
   
   h1 {
-    text-align: center;
     color: #151723;
     font-family: 'Heebo', sans-serif;
     font-weight: 500;
   }
   h2 {
-    text-align: center;
     color: #151723;
     font-family: 'Heebo', sans-serif;
     font-weight: 500;
   }
   p {
-    text-align: center;
     color: #151723;
     font-family: 'Heebo', sans-serif;
     font-weight: 400;
@@ -49,10 +48,20 @@
   ::selection {
     background-color: #1FBFAF;
   }
+  a {
+    color: #151723;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+  }
+  a:hover {
+    background-color: #151723;
+    color: white;
+  }
 }
 @media (prefers-color-scheme: dark) {
   html {
     background-color: #151723;
+    color: white;
   }
   .topbar {
     background-color: #913727;
@@ -65,7 +74,7 @@
   }
   .headerText {
     display: block;
-    color: #E8E8EE;
+    color: white;
   }
   
   .page {
@@ -81,24 +90,36 @@
   
   h1 {
     text-align: center;
-    color: #E8E8EE;
+    color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 500;
   }
   h2 {
     text-align: center;
-    color: #E8E8EE;
+    color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 500;
   }
   p {
     text-align: center;
-    color: #E8E8EE;
+    color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 400;
   }
   ::selection {
     background-color: #178C81;
+  }
+  a {
+    text-align: center;
+    color: white;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: white;
+    color: #151723;
+    text-decoration: none;
   }
 }
 

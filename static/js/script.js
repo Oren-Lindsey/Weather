@@ -1,7 +1,10 @@
-function getWeather() {
+
+function getWeather(units, display) {
+  globalThis.u = units;
+  globalThis.displayU = display;
   getCurrentLocation();
 }
-function getCurrentLocation() {
+function getCurrentLocation(units) {
   var locationOptions = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -22,7 +25,7 @@ function fetchWeather(crds) {
   var lat = crds.latitude;
   var lon = crds.longitude;
   var acc = crds.accuracy;
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=23d1bf78ef3af08c8f855019c194cc37`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${u}&appid=23d1bf78ef3af08c8f855019c194cc37`)
     .then(response => response.json())
     .then(data => populatePage(data))
 }
@@ -32,15 +35,10 @@ function populatePage(data) {
   weatherData = data.weather[0];
   console.log(weatherData)
   hideLoader();
-  var tempMin = data.main.temp_min
-  var tempMax = data.main.temp_max
-  var tempOffset = Math.abs(tempMax - tempMin);
-  tempOffset = Math.round(tempOffset);
   var temp = Math.round(data.main.temp);
   var feelsLike = Math.round(data.main.feels_like);
-  addElement('h2', 'weather-conditions-p', 'weather', `${weatherData.main}`)
-  addElement('p', 'weather-temp-p', 'weather', `${temp}° F (+/- ${tempOffset} ° F)`)
-  addElement('p', 'weather-feels_like-p', 'weather', `Feels like: ${feelsLike}° F`)
+  addElement('h2', 'weather-conditions-p', 'weather', `${temp}${displayU} ${weatherData.main}`)
+  addElement('p', 'weather-feels_like-p', 'weather', `Feels like: ${feelsLike}${displayU}`)
   var time = timeConverter(data.dt);
   addElement('p', 'time-p', 'weather', `Last updated: ${time}`)
 }
