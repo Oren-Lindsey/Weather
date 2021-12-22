@@ -52,10 +52,34 @@
     color: #151723;
     font-family: 'Heebo', sans-serif;
     font-weight: 400;
+    text-decoration: none;
   }
   a:hover {
     background-color: #151723;
     color: white;
+    text-decoration: none;
+  }
+  .pace {
+  	-webkit-pointer-events: none;
+  	pointer-events: none;
+  
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+  }
+  
+  .pace-inactive {
+  	display: none;
+  }
+  
+  .pace .pace-progress {
+  	background: #1FBFAF;
+  	position: fixed;
+  	z-index: 2000;
+  	top: 0;
+  	right: 100%;
+  	width: 100%;
+  	height: 2px;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -67,6 +91,7 @@
     background-color: #913727;
     display: block;
     position: fixed;
+    text-align: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -79,6 +104,7 @@
   
   .page {
     align-items: center;
+    text-align: center;
   }
   
   .weather {
@@ -89,19 +115,16 @@
   }
   
   h1 {
-    text-align: center;
     color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 500;
   }
   h2 {
-    text-align: center;
     color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 500;
   }
   p {
-    text-align: center;
     color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 400;
@@ -110,7 +133,6 @@
     background-color: #178C81;
   }
   a {
-    text-align: center;
     color: white;
     font-family: 'Heebo', sans-serif;
     font-weight: 400;
@@ -120,6 +142,28 @@
     background-color: white;
     color: #151723;
     text-decoration: none;
+  }
+  .pace {
+  	-webkit-pointer-events: none;
+  	pointer-events: none;
+  
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+  }
+  
+  .pace-inactive {
+  	display: none;
+  }
+  
+  .pace .pace-progress {
+  	background: #178C81;
+  	position: fixed;
+  	z-index: 2000;
+  	top: 0;
+  	right: 100%;
+  	width: 100%;
+  	height: 2px;
   }
 }
 

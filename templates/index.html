@@ -8,6 +8,7 @@
     <link href="https://weather.s40.repl.co/static/css/style.css/" rel="stylesheet">
     <meta name="theme-color" content="#CA4E38" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#913727" media="(prefers-color-scheme: dark)">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
   </head>
   <body>
     <header class="topbar" id="header" style="">
@@ -20,7 +21,7 @@
     <div id="page" class="page">
       <p id="loader" style="display: block;">Loading...</p>
       <div id="weather" class="weather"></div>
-      <a href="https://weather.s40.repl.co/metric">Metric units</a>
+      <a href="https://weather.s40.repl.co/metric">Switch to Metric units</a>
     </div>
     <script>getWeather('imperial', '℉');</script>
   </body>

@@ -1,4 +1,3 @@
-
 function getWeather(units, display) {
   globalThis.u = units;
   globalThis.displayU = display;
@@ -32,13 +31,24 @@ function fetchWeather(crds) {
 
 function populatePage(data) {
   console.log(data);
+  console.log('u');
   weatherData = data.weather[0];
   console.log(weatherData)
   hideLoader();
   var temp = Math.round(data.main.temp);
   var feelsLike = Math.round(data.main.feels_like);
+  var windSpeed = Math.round(data.wind.speed);
+  var windDeg = data.wind.deg;
+  var windGusts = Math.round(data.wind.gust);
+  if (u == 'imperial') {
+    var windU = 'miles/hour';
+  } else {
+    var windU = 'meters/second'
+  }
+  var windDir = getWindDir(windDeg);
   addElement('h2', 'weather-conditions-p', 'weather', `${temp}${displayU} ${weatherData.main}`)
   addElement('p', 'weather-feels_like-p', 'weather', `Feels like: ${feelsLike}${displayU}`)
+  addElement('p', 'weather-wind-speed-p', 'weather', `Wind speed: ${windSpeed} ${windU}, ${windDeg}° ${windDir}; Gusts up to ${windGusts} ${windU}`)
   var time = timeConverter(data.dt);
   addElement('p', 'time-p', 'weather', `Last updated: ${time}`)
 }
@@ -81,6 +91,39 @@ function timeConverter(UNIX_timestamp){
   var sec = a.getSeconds();
   var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
   return time;
+}
+
+function getWindDir(windDeg) {
+  if (windDeg < 180) {
+    if (windDeg < 90) {
+      if (windDeg < 45) {
+        var compassWind = 'N';
+      } else {
+        var compassWind = 'NE';
+      }
+    } else {
+      if (windDeg < 135) {
+        var compassWind = 'E';
+      } else {
+        var compassWind = 'SE';
+      }
+    }
+  } else {
+    if (windDeg < 270) {
+      if (windDeg < 225) {
+        var compassWind = 'S';
+      } else {
+        var compassWind = 'SW';
+      }
+    } else {
+      if (windDeg < 315) {
+        var compassWind = 'W';
+      } else {
+        var compassWind = 'NW';
+      }
+    }
+  }
+  return compassWind;
 }
 
 window.onscroll = function() {stickyHeader()};
