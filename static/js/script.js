@@ -139,3 +139,7 @@ function stickyHeader() {
     header.classList.remove("sticky");
   }
 }
+/* Todo: 
+make sure each item exists before adding it
+Give it charts and graphics to visualize temp, wind, cloudiness
+*/
