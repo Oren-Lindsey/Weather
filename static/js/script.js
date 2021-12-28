@@ -40,17 +40,28 @@ function populatePage(data) {
   var windSpeed = Math.round(data.wind.speed);
   var windDeg = data.wind.deg;
   var windGusts = Math.round(data.wind.gust);
+  var location = data.name;
+  var longitude = data.coord.lon;
+  var latitude = data.coord.lat;
   if (u == 'imperial') {
     var windU = 'miles/hour';
   } else {
     var windU = 'meters/second'
   }
   var windDir = getWindDir(windDeg);
-  addElement('h2', 'weather-conditions-p', 'weather', `${temp}${displayU} ${weatherData.main}`)
-  addElement('p', 'weather-feels_like-p', 'weather', `Feels like: ${feelsLike}${displayU}`)
-  addElement('p', 'weather-wind-speed-p', 'weather', `Wind speed: ${windSpeed} ${windU}, ${windDeg}° ${windDir}; Gusts up to ${windGusts} ${windU}`)
+  addElement('h2', 'weather-conditions-p', 'weather', `${temp}${displayU} ${weatherData.main}`);
+  addElement('p', 'weather-feels_like-p', 'weather', `Feels like: ${feelsLike}${displayU}`);
+  if (windSpeed > 0) {
+    var windEl = `Wind speed: ${windSpeed} ${windU}, ${windDeg}${windDir}`
+    if (windGusts != 'NaN') {
+      windEl = `${windEl}; Gusts up to ${windGusts} ${windU}`
+    }
+  }
+  addElement('p', 'weather-wind-speed-p', 'weather', windEl);
   var time = timeConverter(data.dt);
-  addElement('p', 'time-p', 'weather', `Last updated: ${time}`)
+  addElement('br', 'gap-br', 'weather', '');
+  addElement('p', 'location-p', 'weather', `Location: ${location} (Lon: ${longitude}, Lat: ${latitude})`);
+  addElement('p', 'time-p', 'weather', `Last updated: ${time}`);
 }
 //add to "weather" for main weather block or "page" for full page
 
@@ -97,29 +108,29 @@ function getWindDir(windDeg) {
   if (windDeg < 180) {
     if (windDeg < 90) {
       if (windDeg < 45) {
-        var compassWind = 'N';
+        var compassWind = '° N';
       } else {
-        var compassWind = 'NE';
+        var compassWind = '° NE';
       }
     } else {
       if (windDeg < 135) {
-        var compassWind = 'E';
+        var compassWind = '° E';
       } else {
-        var compassWind = 'SE';
+        var compassWind = '° SE';
       }
     }
   } else {
     if (windDeg < 270) {
       if (windDeg < 225) {
-        var compassWind = 'S';
+        var compassWind = '° S';
       } else {
-        var compassWind = 'SW';
+        var compassWind = '° SW';
       }
     } else {
       if (windDeg < 315) {
-        var compassWind = 'W';
+        var compassWind = '° W';
       } else {
-        var compassWind = 'NW';
+        var compassWind = '° NW';
       }
     }
   }
